@@ -24,7 +24,14 @@ class HangmanViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var wordCorrespondance: UILabel!
 
+    @IBOutlet weak var GuessButton: UIButton!
+    
+    @IBOutlet weak var wrongGuessList: UILabel!
+    
+    @IBOutlet weak var letterGuessing: UITextField!
+    
     /*
     // MARK: - Navigation
 
