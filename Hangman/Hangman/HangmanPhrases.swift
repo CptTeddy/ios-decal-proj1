@@ -24,7 +24,14 @@ class HangmanPhrases {
         return phrases.object(at: index) as! String
     }
     
-//    func updateInput() {
-//    }
+    // A helper method to test when button pressed, whether at the win state.
+    public func testWin(_positions: [Bool]) -> Bool{
+        for position in (_positions) {
+            if (!position) {
+                return false
+            }
+        }
+        return true
+    }
     
 }

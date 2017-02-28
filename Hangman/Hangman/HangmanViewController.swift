@@ -18,13 +18,42 @@ class HangmanViewController: UIViewController {
     var allLetters = Set<String>()
     var wrongTimes = 0
     var phrase: String?
+    
+    
+    public func getPhraseLength() -> Int {
+        return self.phraseLength!
+    }
+    
+    public func getCorrectPos() -> [Bool] {
+        return self.correctPos!
+    }
+    
+    public func getPhraseAsArray() -> [Character] {
+        return self.phraseAsArray!
+    }
+    
+    public func getWrongGueses() -> Set<String> {
+        return self.wrongGuesses
+    }
+    
+    public func getAllLetters() -> Set<String> {
+        return self.allLetters
+    }
+    
+    public func getWrongTimes() -> Int {
+        return self.wrongTimes
+    }
+    
+    public func getPhrase() -> String {
+        return self.phrase!
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let hangmanPhrases = HangmanPhrases()
         // Generate a random phrase for the user to guess
         phrase = hangmanPhrases.getRandomPhrase()
-        print(phrase)
+        print(phrase) // delete later
         phraseAsArray = [Character](phrase!.characters)
         phraseLength = phrase?.characters.count
         correctPos = [Bool](repeating: false, count: phraseLength!)
@@ -70,6 +99,7 @@ class HangmanViewController: UIViewController {
         let guess = letterGuessing.text
         
         if guess!.characters.count == 1 {
+            alertSingelChar.text = ""
             
             if (allLetters.contains(guess!)) {
                 
@@ -78,7 +108,7 @@ class HangmanViewController: UIViewController {
                         correctPos![index] = true
                     }
                 }
-                if (testIfWon()) {
+                if (HangmanPhrases().testWin(_positions: getCorrectPos())) {
                     let alertController = UIAlertController(
                         title: "Congratulations! You Won!",
                         message: "Let's play a new game",
@@ -114,12 +144,16 @@ class HangmanViewController: UIViewController {
                     wrongGuessList.text = String(describing: wrongGuesses)
                 }
             }
+            letterGuessing.text = ""
+            displayGuess()
+            return
         }
         letterGuessing.text = ""
         alertSingelChar.text = "Please only input one character at a time."
         displayGuess()
     }
     
+    // A helper method to reset the view to initial state. Only activated at end of game.
     func reset() {
         self.wordCorrespondance.text = ""
         self.allLetters = Set<String>()
@@ -138,14 +172,7 @@ class HangmanViewController: UIViewController {
         wrongGuessList.text = ""
         self.displayGuess()
     }
-    func testIfWon() -> Bool{
-        for x in correctPos! {
-            if (x == false) {
-                return false
-            }
-        }
-        return true
-    }
+    
     
     /*
     // MARK: - Navigation
