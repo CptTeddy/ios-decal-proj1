@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="guessBox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWi-Zu-Z2J">
-                                <rect key="frame" x="129" y="200" width="117.5" height="32.5"/>
+                                <rect key="frame" x="129" y="200" width="118" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB2-DF-7cs">
-                                <rect key="frame" x="152.5" y="564" width="69" height="39"/>
+                                <rect key="frame" x="153" y="564" width="69" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Guess!"/>
                                 <connections>
@@ -41,21 +41,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(WrongLettersHere)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko1-E7-nSn">
-                                <rect key="frame" x="82.5" y="321" width="210.5" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko1-E7-nSn">
+                                <rect key="frame" x="187.5" y="321" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="enterGuess(one only)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RYw-me-tKR">
-                                <rect key="frame" x="106" y="490" width="160" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RYw-me-tKR">
+                                <rect key="frame" x="124" y="490" width="125" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="dzR-MT-50S"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJ8-dU-C6y">
                                 <rect key="frame" x="62" y="44" width="250" height="136"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your guess here:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYP-Ro-qrz">
+                                <rect key="frame" x="87.5" y="458" width="200.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -64,6 +73,7 @@
                             <constraint firstItem="JWi-Zu-Z2J" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="180" id="5mL-t0-OQT"/>
                             <constraint firstItem="Rkb-O3-rip" firstAttribute="top" secondItem="RYw-me-tKR" secondAttribute="bottom" constant="147" id="6Ah-9u-Ykk"/>
                             <constraint firstItem="9PS-Mj-GCa" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="6vF-es-aWi"/>
+                            <constraint firstItem="RYw-me-tKR" firstAttribute="top" secondItem="wYP-Ro-qrz" secondAttribute="bottom" constant="8" id="BCH-Mq-hF9"/>
                             <constraint firstItem="ko1-E7-nSn" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="O9z-9i-vkZ"/>
                             <constraint firstItem="ko1-E7-nSn" firstAttribute="top" secondItem="9PS-Mj-GCa" secondAttribute="bottom" constant="-28" id="RFk-Ip-JNR"/>
                             <constraint firstItem="JWi-Zu-Z2J" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="180" id="Rd0-T4-iNU"/>
@@ -72,12 +82,14 @@
                             <constraint firstItem="gJ8-dU-C6y" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="24" id="lgo-dV-d3o"/>
                             <constraint firstItem="ko1-E7-nSn" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="301" id="pwS-Tg-mQx"/>
                             <constraint firstItem="JWi-Zu-Z2J" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="qli-6o-lAK"/>
+                            <constraint firstItem="wYP-Ro-qrz" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="umg-YJ-cpq"/>
                             <constraint firstItem="RYw-me-tKR" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" constant="-1.5" id="yhk-sf-oZg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="GuessButton" destination="PB2-DF-7cs" id="H5u-PF-uYk"/>
                         <outlet property="HangmanImage" destination="gJ8-dU-C6y" id="Oui-1P-swM"/>
+                        <outlet property="alertSingelChar" destination="wYP-Ro-qrz" id="f95-LR-v6f"/>
                         <outlet property="letterGuessing" destination="RYw-me-tKR" id="zAS-WZ-5Do"/>
                         <outlet property="wordCorrespondance" destination="JWi-Zu-Z2J" id="4lG-MA-hsI"/>
                         <outlet property="wrongGuessList" destination="ko1-E7-nSn" id="2l6-YS-53H"/>
