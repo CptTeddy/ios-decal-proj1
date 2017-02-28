@@ -27,44 +27,57 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB2-DF-7cs">
-                                <rect key="frame" x="139" y="528" width="96" height="75"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB2-DF-7cs">
+                                <rect key="frame" x="152.5" y="564" width="69" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Guess!"/>
+                                <connections>
+                                    <action selector="makeGuess:" destination="33m-bG-32Y" eventType="touchUpInside" id="mo4-G8-mmz"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Incorrect Guesses:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PS-Mj-GCa">
-                                <rect key="frame" x="71" y="255" width="232" height="96"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect Guesses:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PS-Mj-GCa">
+                                <rect key="frame" x="83" y="255" width="208" height="94"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="(WrongLettersHere)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko1-E7-nSn">
-                                <rect key="frame" x="105" y="321" width="165" height="92"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(WrongLettersHere)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko1-E7-nSn">
+                                <rect key="frame" x="82.5" y="321" width="210.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="enterGuessHere" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RYw-me-tKR">
-                                <rect key="frame" x="81" y="490" width="210" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="enterGuess(one only)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RYw-me-tKR">
+                                <rect key="frame" x="106" y="490" width="160" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJ8-dU-C6y">
+                                <rect key="frame" x="62" y="44" width="250" height="136"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9PS-Mj-GCa" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="235" id="0pR-bm-IxV"/>
+                            <constraint firstItem="gJ8-dU-C6y" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="1aB-0P-IoP"/>
                             <constraint firstItem="JWi-Zu-Z2J" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="180" id="5mL-t0-OQT"/>
+                            <constraint firstItem="Rkb-O3-rip" firstAttribute="top" secondItem="RYw-me-tKR" secondAttribute="bottom" constant="147" id="6Ah-9u-Ykk"/>
                             <constraint firstItem="9PS-Mj-GCa" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="6vF-es-aWi"/>
                             <constraint firstItem="ko1-E7-nSn" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="O9z-9i-vkZ"/>
                             <constraint firstItem="ko1-E7-nSn" firstAttribute="top" secondItem="9PS-Mj-GCa" secondAttribute="bottom" constant="-28" id="RFk-Ip-JNR"/>
+                            <constraint firstItem="JWi-Zu-Z2J" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="180" id="Rd0-T4-iNU"/>
                             <constraint firstItem="Rkb-O3-rip" firstAttribute="top" secondItem="PB2-DF-7cs" secondAttribute="bottom" constant="64" id="TZS-p8-8jn"/>
                             <constraint firstItem="PB2-DF-7cs" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="aCr-sU-W4l"/>
+                            <constraint firstItem="gJ8-dU-C6y" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="24" id="lgo-dV-d3o"/>
+                            <constraint firstItem="ko1-E7-nSn" firstAttribute="top" secondItem="fga-sG-nzY" secondAttribute="bottom" constant="301" id="pwS-Tg-mQx"/>
                             <constraint firstItem="JWi-Zu-Z2J" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" id="qli-6o-lAK"/>
                             <constraint firstItem="RYw-me-tKR" firstAttribute="centerX" secondItem="xKS-yl-l6T" secondAttribute="centerX" constant="-1.5" id="yhk-sf-oZg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="GuessButton" destination="PB2-DF-7cs" id="H5u-PF-uYk"/>
+                        <outlet property="HangmanImage" destination="gJ8-dU-C6y" id="Oui-1P-swM"/>
                         <outlet property="letterGuessing" destination="RYw-me-tKR" id="zAS-WZ-5Do"/>
                         <outlet property="wordCorrespondance" destination="JWi-Zu-Z2J" id="4lG-MA-hsI"/>
                         <outlet property="wrongGuessList" destination="ko1-E7-nSn" id="2l6-YS-53H"/>
