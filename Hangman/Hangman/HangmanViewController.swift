@@ -16,38 +16,9 @@ class HangmanViewController: UIViewController {
     var phraseAsArray: [Character]?
     var wrongGuesses = Set<String>()
     var allLetters = Set<String>()
-    var wrongTimes = 0
+    var wrongTimes = 1
     var phrase: String?
     
-    
-    public func getPhraseLength() -> Int {
-        return self.phraseLength!
-    }
-    
-    public func getCorrectPos() -> [Bool] {
-        return self.correctPos!
-    }
-    
-    public func getPhraseAsArray() -> [Character] {
-        return self.phraseAsArray!
-    }
-    
-    public func getWrongGueses() -> Set<String> {
-        return self.wrongGuesses
-    }
-    
-    public func getAllLetters() -> Set<String> {
-        return self.allLetters
-    }
-    
-    public func getWrongTimes() -> Int {
-        return self.wrongTimes
-    }
-    
-    public func getPhrase() -> String {
-        return self.phrase!
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let hangmanPhrases = HangmanPhrases()
@@ -57,6 +28,7 @@ class HangmanViewController: UIViewController {
         phraseAsArray = [Character](phrase!.characters)
         phraseLength = phrase?.characters.count
         correctPos = [Bool](repeating: false, count: phraseLength!)
+        HangmanImage.image = UIImage(named: "hangman1.gif")
         for letter in phraseAsArray! {
             allLetters.insert(String(letter)) // Initialize the set of all letters with legal bag of letters.
         }
@@ -108,37 +80,30 @@ class HangmanViewController: UIViewController {
                         correctPos![index] = true
                     }
                 }
-                if (HangmanPhrases().testWin(_positions: getCorrectPos())) {
+                if (HangmanPhrases().testWin(_positions: correctPos!)) {
                     let alertController = UIAlertController(
-                        title: "Congratulations! You Won!",
-                        message: "Let's play a new game",
+                        title: "You Won!",
+                        message: "Start a new game?",
                         preferredStyle: .alert)
-                    let newGameAction = UIAlertAction(title: "OK", style: .default) {
-                        action in self.reset()
-                    }
-                    alertController.addAction(newGameAction)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default) {
+                        action in self.reset()})
                     self.present(alertController, animated: true, completion: nil)
                 }
                 
             }
             else {
                 if !wrongGuesses.contains(String(guess!)) {
-                    
                     wrongGuesses.insert(String(guess!))
-                    if wrongTimes < 7 {
-                        wrongTimes += 1
-                        let imageName = "hangman" + String(wrongTimes) + ".gif"
-                        HangmanImage.image = UIImage(named: imageName)
-                    }
-                    if wrongTimes > 6{
+                    wrongTimes += 1
+                    let imageName = "hangman" + String(wrongTimes) + ".gif"
+                    HangmanImage.image = UIImage(named: imageName)
+                    if wrongTimes > 6 {
                         let alertController = UIAlertController(
-                            title: "You Lost!",
-                            message: "Let's try again",
+                            title: "Game Over",
+                            message: "Start a new game?",
                             preferredStyle: .alert)
-                        let newGameAction = UIAlertAction(title: "OK", style: .default) {
-                            action in self.reset()
-                        }
-                        alertController.addAction(newGameAction)
+                        alertController.addAction(UIAlertAction(title: "OK", style: .default) {
+                            action in self.reset()})
                         self.present(alertController, animated: true, completion: nil)
                     }
                     wrongGuessList.text = String(describing: wrongGuesses)
@@ -155,33 +120,21 @@ class HangmanViewController: UIViewController {
     
     // A helper method to reset the view to initial state. Only activated at end of game.
     func reset() {
-        self.wordCorrespondance.text = ""
-        self.allLetters = Set<String>()
-        self.wrongGuesses = Set<String>()
-        self.wrongTimes = 1
+        wordCorrespondance.text = ""
+        wrongTimes = 1
         let hangmanPhrases = HangmanPhrases()
-        self.phrase = hangmanPhrases.getRandomPhrase()
-        self.phraseAsArray = [Character](self.phrase!.characters)
-        self.phraseLength = self.phrase!.characters.count
-        self.correctPos = [Bool](repeating: false, count: self.phraseLength!)
+        phraseLength = self.phrase!.characters.count
+        correctPos = [Bool](repeating: false, count: self.phraseLength!)
+        allLetters = Set<String>()
+        wrongGuesses = Set<String>()
+        phrase = hangmanPhrases.getRandomPhrase()
+        phraseAsArray = [Character](self.phrase!.characters)
         for c in self.phraseAsArray! {
-            self.allLetters.insert(String(c))
+            allLetters.insert(String(c))
         }
-        let imageName = "hangman" + String(wrongTimes) + ".gif"
-        HangmanImage.image = UIImage(named: imageName)
+        HangmanImage.image = UIImage(named: "hangman1.gif")
         wrongGuessList.text = ""
-        self.displayGuess()
+        displayGuess()
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
